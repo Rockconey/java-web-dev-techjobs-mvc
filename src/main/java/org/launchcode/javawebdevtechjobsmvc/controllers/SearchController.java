@@ -9,18 +9,20 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 
 import static org.launchcode.javawebdevtechjobsmvc.controllers.ListController.columnChoices;
+import static org.launchcode.javawebdevtechjobsmvc.controllers.TechJobsController.actionChoices;
 
 /**
  * Created by LaunchCode
  */
 @Controller
 @RequestMapping("search")
-public class SearchController {
+public class SearchController extends TechJobsController{
     ArrayList<Job> jobs;
 
     @RequestMapping(value = "")
     public String search(Model model) {
         model.addAttribute("columns", columnChoices);
+        model.addAttribute("actions", actionChoices);
         return "search";
     }
 
@@ -37,6 +39,7 @@ public class SearchController {
         model.addAttribute("title", "Jobs with " + searchType + ": " + searchTerm);
         model.addAttribute("searchType", searchType);
         model.addAttribute("searchTerm", searchTerm);
+        model.addAttribute("actions", actionChoices);
         return "search";
     }
 }
