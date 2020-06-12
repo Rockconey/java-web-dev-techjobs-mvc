@@ -23,8 +23,6 @@
                     <li th:each="action : ${actions}">
                         <a th:href="@{'/' + ${action.key}}" th:text="${action.value}"></a>
                     </li>
-<!--                    <li><a th:href="@{/search}">Search</a></li>-->
-<!--                    <li><a th:href="@{/list}">List</a></li>-->
                 </ul>
             </div>
         </div>
